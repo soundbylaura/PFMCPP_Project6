@@ -49,7 +49,7 @@ Purpose:  This project will show you the difference between member functions and
  
  12) replicate the functionality of <structName2>'s static function by implementing a member function in U that does the same thing.
  
- 13) remember the rules for using pointers!  What is the one thing we always do before we use a pointer?
+ 13) remember the rules for using pointers!  What is the one thing we always do before we use a pointer? Always check to make sure a POINTER is not nullptr before using it; it must be initialzied to a value.
  
  After you finish, click the [run] button.  Clear up any errors or warnings as best you can.
  */
@@ -58,31 +58,31 @@ Purpose:  This project will show you the difference between member functions and
 #include <string>
 struct T
 {
-    T(<#type name#> v, const char* <#variable name#>)   //1
-    //2
-    //3
+    T(int v, const char* title);   //1
+    int d = 10;
+    int f = 50;
 };
 
-struct <#structName1#>                                //4
+struct Memory;                               //4
 {
-    <#type name#> compare(<#type name#> a, <#type name#> b) //5
+    int compare(int a, int b) //5
     {
         if( a->value < b->value ) return a;
         if( a->value > b->value ) return b;
-        return nullptr;
+        return a + b;
     }
 };
 
 struct U
 {
-    float <#name1#> { 0 }, <#name2#> { 0 };
+    float bytes { 0 }, gigawatts { 0 };
     <#returnType#> <#memberFunction#>(<#type name#>* <#updatedValue#>)      //12
     {
         
     }
 };
 
-struct <#structname2#>
+struct Application
 {
     static <#returntype#> <#staticFunctionA#>(U* that, <#type name#>* <#updatedValue#> )        //10
     {
