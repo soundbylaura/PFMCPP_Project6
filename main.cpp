@@ -58,7 +58,7 @@ Purpose:  This project will show you the difference between member functions and
 #include <string>
 struct T
 {
-    T(int v, const char* variable1);   //1
+    T(int v, const char* variable1)   //1
     {
         value = v;
         name = variable1;
@@ -69,11 +69,11 @@ struct T
 
 struct NewStruct1                                //4
 {
-    <#type name#> compare(<#type name#> a, <#type name#> b) //5
+    auto compare(T* a, T* b) //5
     {
         if( a->value < b->value ) return a;
         if( a->value > b->value ) return b;
-        return nullptr;
+        // return nullptr;
     }
 };
 
@@ -121,16 +121,16 @@ struct NewStruct2
 
 int main()
 {
-    T <#name1#>( , );                                             //6
-    T <#name2#>( , );                                             //6
+    T option1( 10, "ten" );                                             //6
+    T option2( 40, "forty" );                                             //6
 
-    <#structName1#> f;                                            //7
-    auto* smaller = f.compare( , );                              //8
+    NewStruct1 f;                                            //7
+    auto* smaller = f.compare( 55, 65 );                              //8
     std::cout << "the smaller one is << " << smaller->name << std::endl; //9
 
     U <#name3#>;
     float updatedValue = 5.f;
-    std::cout << "[static func] <#name3#>'s multiplied values: " << <#structname2#>::<#staticFunctionA#>( , ) << std::endl;                  //11
+    std::cout << "[static func] <#name3#>'s multiplied values: " << NewStruct2::<#staticFunctionA#>( , ) << std::endl;                  //11
 
     U <#name4#>;
     std::cout << "[member func] <#name4#>'s multiplied values: " << <#name4#>.<#memberFunction#>( &updatedValue ) << std::endl;
