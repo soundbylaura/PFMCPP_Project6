@@ -58,12 +58,16 @@ Purpose:  This project will show you the difference between member functions and
 #include <string>
 struct T
 {
-    T(<#type name#> v, const char* <#variable name#>)   //1
-    //2
-    //3
+    T(int v, const char* variable1);   //1
+    {
+        value = v;
+        name = variable1;
+    }   
+    int value;
+    std::string name;
 };
 
-struct <#structName1#>                                //4
+struct NewStruct1                                //4
 {
     <#type name#> compare(<#type name#> a, <#type name#> b) //5
     {
@@ -82,7 +86,7 @@ struct U
     }
 };
 
-struct <#structname2#>
+struct NewStruct2
 {
     static <#returntype#> <#staticFunctionA#>(U* that, <#type name#>* <#updatedValue#> )        //10
     {
