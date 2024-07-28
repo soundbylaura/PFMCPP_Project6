@@ -77,29 +77,28 @@ struct NewStruct1                                //4
 
 struct U
 {
-    float <#name1#> { 0 }, <#name2#> { 0 };
-    <#returnType#> <#memberFunction#>(<#type name#>* <#updatedValue#>)      //12
+    float name1 { 100.f }, name2 { 200.f };
+    static float getResult(U* that, float* updatedValue1 )      //12
     {
 
     }
 };
 
-struct <#structname2#>
+struct NewStruct2
 {
-    static <#returntype#> <#staticFunctionA#>(U* that, <#type name#>* <#updatedValue#> )        //10
+    static float getResult(U* that, float* updatedValue1 )        //10
     {
-        std::cout << "U's <#name1#> value: " << that-><#name1#> << std::endl;
-        that-><#name1#> = <#updatedValue#>;
-        std::cout << "U's <#name1#> updated value: " << that-><#name1#> << std::endl;
-        while( std::abs(that-><#name2#> - that-><#name1#>) > 0.001f )
+        std::cout << "U's name1 value: " << that->name1 << std::endl;
+        that->name1 = *updatedValue1;
+        std::cout << "U's name1 updated value: " << that->name1 << std::endl;
+        while( std::abs(that->name2 - that->name1) > 0.001f )
         {
-            /*
-             write something that makes the distance between that-><#name2#> and that-><#name1#> get smaller
-             */
-            that-><#name2#> += ;
+
+        that->name1 *= 0.5f;
+
         }
-        std::cout << "U's <#name2#> updated value: " << that-><#name2#> << std::endl;
-        return that-><#name2#> * that-><#name1#>;
+        std::cout << "U's name2 updated value: " << that->name2 << std::endl;
+        return that->name2 * that->name1;
     }
 };
 
@@ -119,14 +118,14 @@ struct <#structname2#>
 
 int main()
 {
-    T a( 20, 30);                                             //6
-    T b( 25, 35);                                             //6
+    T a( 20, "twenty");                                             //6
+    T b( 25, "twentyFive");                                             //6
 
     NewStruct1 f;                                            //7
     auto* smaller = f.compare( T* a, T* b );                              //8
     std::cout << "the smaller one is << " << smaller->name << std::endl; //9
 
-    U <#name3#>;
+    U name3;
     float updatedValue = 5.f;
     std::cout << "[static func] <#name3#>'s multiplied values: " << <#structname2#>::<#staticFunctionA#>( , ) << std::endl;                  //11
 
