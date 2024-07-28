@@ -67,7 +67,7 @@ T::T(int v, const char* variable1) {}
 
 struct NewStruct1                                //4
 {
-    int compare(T* a, T* b) //5
+    T* compare(T* a, T* b) //5
     {
         if( a->value < b->value ) return a;
         if( a->value > b->value ) return b;
@@ -119,11 +119,11 @@ struct <#structname2#>
 
 int main()
 {
-    T <#name1#>( , );                                             //6
-    T <#name2#>( , );                                             //6
+    T a( 20, 30);                                             //6
+    T b( 25, 35);                                             //6
 
-    <#structName1#> f;                                            //7
-    auto* smaller = f.compare( , );                              //8
+    NewStruct1 f;                                            //7
+    auto* smaller = f.compare( T* a, T* b );                              //8
     std::cout << "the smaller one is << " << smaller->name << std::endl; //9
 
     U <#name3#>;
