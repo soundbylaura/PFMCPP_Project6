@@ -49,7 +49,7 @@ Purpose:  This project will show you the difference between member functions and
 
  12) replicate the functionality of <structName2>'s static function by implementing a member function in U that does the same thing.
 
- 13) remember the rules for using pointers!  What is the one thing we always do before we use a pointer? Always check to make sure a pointer is not nullptr before using it; must be initialized to a value.
+ 13) remember the rules for using pointers!  What is the one thing we always do before we use a pointer?
 
  After you finish, click the [run] button.  Clear up any errors or warnings as best you can.
  */
@@ -58,22 +58,18 @@ Purpose:  This project will show you the difference between member functions and
 #include <string>
 struct T
 {
-    T(int v, const char* variable1)   //1
-    {
-        value = v;
-        name = variable1;
-    }   
-    int value;
-    std::string name;
+    T(<#type name#> v, const char* <#variable name#>)   //1
+    //2
+    //3
 };
 
-struct NewStruct1                                //4
+struct <#structName1#>                                //4
 {
-    auto compare(T* a, T* b) //5
+    <#type name#> compare(<#type name#> a, <#type name#> b) //5
     {
         if( a->value < b->value ) return a;
         if( a->value > b->value ) return b;
-        // return nullptr;
+        return nullptr;
     }
 };
 
@@ -86,7 +82,7 @@ struct U
     }
 };
 
-struct NewStruct2
+struct <#structname2#>
 {
     static <#returntype#> <#staticFunctionA#>(U* that, <#type name#>* <#updatedValue#> )        //10
     {
@@ -121,16 +117,16 @@ struct NewStruct2
 
 int main()
 {
-    T option1( 10, "ten" );                                             //6
-    T option2( 40, "forty" );                                             //6
+    T <#name1#>( , );                                             //6
+    T <#name2#>( , );                                             //6
 
-    NewStruct1 f;                                            //7
-    auto* smaller = f.compare( 55, 65 );                              //8
+    <#structName1#> f;                                            //7
+    auto* smaller = f.compare( , );                              //8
     std::cout << "the smaller one is << " << smaller->name << std::endl; //9
 
     U <#name3#>;
     float updatedValue = 5.f;
-    std::cout << "[static func] <#name3#>'s multiplied values: " << NewStruct2::<#staticFunctionA#>( , ) << std::endl;                  //11
+    std::cout << "[static func] <#name3#>'s multiplied values: " << <#structname2#>::<#staticFunctionA#>( , ) << std::endl;                  //11
 
     U <#name4#>;
     std::cout << "[member func] <#name4#>'s multiplied values: " << <#name4#>.<#memberFunction#>( &updatedValue ) << std::endl;
