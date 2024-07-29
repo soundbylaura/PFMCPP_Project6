@@ -122,12 +122,12 @@ int main()
     T b( 25, "twentyFive");                                             //6
 
     NewStruct1 f;                                            //7
-    auto* smaller = f.compare( T* a, T* b );                              //8
+    auto* smaller = f.compare( &a, &b );                              //8
     std::cout << "the smaller one is << " << smaller->name << std::endl; //9
 
     U name3;
     float updatedValue = 5.f;
-    std::cout << "U's name3's multiplied values: " << NewStruct2::getResult(  , ) << std::endl;                  //11
+    std::cout << "U's name3's multiplied values: " << NewStruct2::getResult( &name3 , &updatedValue ) << std::endl;                  //11
 
     U <#name4#>;
     std::cout << "[member func] <#name4#>'s multiplied values: " << <#name4#>.<#memberFunction#>( &updatedValue ) << std::endl;
