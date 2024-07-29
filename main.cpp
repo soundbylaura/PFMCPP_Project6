@@ -60,7 +60,7 @@ struct T
 {
     T(int v, const char* variable1);   //1
     int value = 10; //2
-    std::string name = "Name"; //3
+    std::string name = "Name"; //3 
 };
 
 T::T(int v, const char* variable1) {}
@@ -71,7 +71,7 @@ struct NewStruct1                                //4
     {
         if( a->value < b->value ) return a;
         if( a->value > b->value ) return b;
-        return 0;
+        return nullptr;
     }
 };
 
@@ -80,6 +80,18 @@ struct U
     float name1 { 100.f }, name2 { 200.f };
     static float getResult(U* that, float* updatedValue1 )      //12
     {
+        if(that != nullptr)
+        std::cout << "U's name1' value: " << that->name1 << std::endl;
+        that->name1 = *updatedValue1;
+        std::cout << "U's name1 updated value: " << that->name1 << std::endl;
+        while( std::abs(that->name2 - that->name1) > 0.001f )
+        {
+
+        that->name1 *= 0.5f;
+
+        }
+        std::cout << "U's name2 updated value: " << that->name2 << std::endl;
+        return that->name2 * that->name1;
     return 0.f;
     }
 };
@@ -88,6 +100,7 @@ struct NewStruct2
 {
     static float getResult(U* that, float* updatedValue1 )        //10
     {
+        if(that != nullptr && updatedValue1 != nullptr)
         std::cout << "U's name1 value: " << that->name1 << std::endl;
         that->name1 = *updatedValue1;
         std::cout << "U's name1 updated value: " << that->name1 << std::endl;
@@ -127,8 +140,8 @@ int main()
 
     U name3;
     float updatedValue = 5.f;
-    std::cout << "U's name3's multiplied values: " << NewStruct2::getResult( &name3 , &updatedValue ) << std::endl;                  //11
+    std::cout << "U's name3's multiplied values: " << NewStruct2::getResult( &name3, &updatedValue ) << std::endl;                  //11
 
-    U <#name4#>;
-    std::cout << "[member func] <#name4#>'s multiplied values: " << <#name4#>.<#memberFunction#>( &updatedValue ) << std::endl;
+    U name4;
+    std::cout << "[member func] name4's multiplied values: " << name4.getResult( &name4, &updatedValue ) << std::endl;
 }
