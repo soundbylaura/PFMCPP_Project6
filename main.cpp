@@ -63,7 +63,7 @@ struct T
     std::string name = "Name"; //3 
 };
 
-T::T(int v, const char* variable1) {}
+T::T(int v, const char* variable1) : value(v), name(variable1) {}
 
 struct NewStruct1                                //4
 {
@@ -92,7 +92,6 @@ struct U
         }
         std::cout << "U's name2 updated value: " << that->name2 << std::endl;
         return that->name2 * that->name1;
-    return 0.f;
     }
 };
 
