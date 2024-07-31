@@ -77,17 +77,17 @@ struct NewStruct1                                //4
 
 struct U
 {
-    float name1 { 100.f }, name2 { 200.f };
+    float name1 { 200.f }, name2 { 200.f };
     static float getResult(U* that, float* updatedValue1 )      //12
     {
-        if(that != nullptr)
+        if(that != nullptr && updatedValue1 != nullptr)
         std::cout << "U's name1' value: " << that->name1 << std::endl;
         that->name1 = *updatedValue1;
         std::cout << "U's name1 updated value: " << that->name1 << std::endl;
         while( std::abs(that->name2 - that->name1) > 0.001f )
         {
 
-        that->name1 *= 0.5f;
+        that->name1 += 0.5f;
 
         }
         std::cout << "U's name2 updated value: " << that->name2 << std::endl;
@@ -106,7 +106,7 @@ struct NewStruct2
         while( std::abs(that->name2 - that->name1) > 0.001f )
         {
 
-        that->name1 *= 0.5f;
+        that->name1 += 0.5f;
 
         }
         std::cout << "U's name2 updated value: " << that->name2 << std::endl;
@@ -130,7 +130,7 @@ struct NewStruct2
 
 int main()
 {
-    T a( 20, "twenty");                                             //6
+    T a( 30, "thirty");                                             //6
     T b( 25, "twentyFive");                                             //6
 
     NewStruct1 f;                                            //7
@@ -142,5 +142,5 @@ int main()
     std::cout << "U's name3's multiplied values: " << NewStruct2::getResult( &name3, &updatedValue ) << std::endl;                  //11
 
     U name4;
-    std::cout << "[member func] name4's multiplied values: " << name4.getResult( &name4, &updatedValue ) << std::endl;
+    std::cout << "U's name4's multiplied values: " << name4.getResult( &name4, &updatedValue ) << std::endl;
 }
